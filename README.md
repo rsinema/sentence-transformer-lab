@@ -4,7 +4,7 @@ This repository contains experiments and projects related to sentence transforme
 
 ## Introduction
 
-This is project for my Natural Language Processing class. This uses sentence transformers to embed a bunch of technical eBooks that I have on my machine, and makes them searchable. I can input a question, which will get embedded, and then the _n_ nearest chunks from data will be returned. Here is an example of a question and the chunks that are returned:
+This is project for my Natural Language Processing class. This uses sentence transformers to embed a bunch of technical eBooks that I have on my machine, and makes them searchable. I can input a question, which will get embedded, and then the _n_ nearest chunks from the data will be returned. Here is an example of a question and the chunks that are returned:
 
 ```bash
 $ python ebook_search.py -q "How do I route traffic to my Docker container?"
