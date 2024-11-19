@@ -1,10 +1,15 @@
 import io
+import os
 import pandas as pd
 import psycopg2
 
 from typing import List
 
-CONNECTION_STRING = "postgresql://nlp_user:nlp_password@localhost:6012/nlp_db"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CONNECTION_STRING = os.getenv('CONNECTION_STRING', "postgresql://nlp_user:nlp_password@localhost:6012/nlp_db")
 
 CREATE_EXTENSION = "CREATE EXTENSION IF NOT EXISTS vector;"
 

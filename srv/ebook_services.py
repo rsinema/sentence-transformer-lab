@@ -2,8 +2,12 @@ import os
 import pandas as pd
 from db.db_methods import check_db_size, create_index, create_table, drop_table, fast_pg_insert, query_similar_books, query_similar_chunks, remove_index, clear_table
 from sentence_transformers import SentenceTransformer
+from dotenv import load_dotenv
 
-MODEL_NAME = 'all-mpnet-base-v2'
+load_dotenv()
+
+# Get the model name from the environment variable
+MODEL_NAME = os.getenv('MODEL_NAME', 'all-MiniLM-L6-v2')
 
 def _chunk_text(text, n=500, overlap=50):
     '''
