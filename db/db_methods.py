@@ -10,16 +10,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CONNECTION_STRING = os.getenv('CONNECTION_STRING', "postgresql://nlp_user:nlp_password@localhost:6012/nlp_db")
+EMBEDDING_LENGTH = os.getenv('EMBEDDING_LENGTH', 384)
 
 CREATE_EXTENSION = "CREATE EXTENSION IF NOT EXISTS vector;"
 
-CREATE_TABLE = '''               
+CREATE_TABLE = f'''               
                 CREATE TABLE IF NOT EXISTS book_embeddings (
                     id SERIAL PRIMARY KEY,
                     book_title TEXT,
                     chunk_text TEXT,
                     chunk_number INTEGER,
-                    embedding vector(768)
+                    embedding vector({EMBEDDING_LENGTH})
                 );
                 '''
 

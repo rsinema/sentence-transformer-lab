@@ -8,6 +8,8 @@ load_dotenv()
 
 # Get the model name from the environment variable
 MODEL_NAME = os.getenv('MODEL_NAME', 'all-MiniLM-L6-v2')
+CHUNK_LENGTH = int(os.getenv('CHUNK_LENGTH', '500'))
+CHUNK_OVERLAP = int(os.getenv('CHUNK_OVERLAP', '50'))
 
 def _chunk_text(text, n=500, overlap=50):
     '''
@@ -37,7 +39,7 @@ def _process_doc(file_path):
     text = ''
     with open(file_path, 'r', encoding='utf-8') as f:
         text = f.read()
-    chunks = _chunk_text(text)
+    chunks = _chunk_text(text, CHUNK_LENGTH, CHUNK_OVERLAP)
     chunks = [' '.join(chunk.split()) for chunk in chunks]
     return chunks
 

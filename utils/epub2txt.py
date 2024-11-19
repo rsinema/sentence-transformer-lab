@@ -38,8 +38,6 @@ def epub2txt(epub_path):
                 chapters.append(text)
     
     # Join all chapters with newlines
-    for c in chapters:
-        print(c[:100])
     text_content = '\n\n'.join(chapters)
     txt_filename = os.path.splitext(os.path.basename(epub_path))[0] + '.txt'
     with open(txt_filename, 'w', encoding='utf-8') as f:
