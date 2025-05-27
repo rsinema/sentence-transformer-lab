@@ -12,6 +12,10 @@ repos:
     rev: 22.3.0
     hooks:
     -   id: black
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: flake8
 -   repo: https://github.com/asottile/reorder-python-imports
     rev: v3.10.0
     hooks:
